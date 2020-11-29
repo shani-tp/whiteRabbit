@@ -37,7 +37,8 @@ class FileuploadController extends Controller
     {
         $searchModel = new FileuploadSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $dataProvider->pagination = ['pageSize' => 10];
+        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -52,6 +53,7 @@ class FileuploadController extends Controller
     {
         $searchModel = new FileuploadLogSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination = ['pageSize' => 10];
 
         return $this->render('log', [
             'searchModel' => $searchModel,
