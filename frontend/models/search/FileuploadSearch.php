@@ -59,7 +59,7 @@ class FileuploadSearch extends Fileupload
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'is_deleted' => $this->is_deleted,
+            'is_deleted' => Fileupload::STATUS_ACTIVE,
         ]);
 
         $query->andFilterWhere(['like', 'file_path', $this->file_path])

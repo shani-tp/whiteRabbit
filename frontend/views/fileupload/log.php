@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use common\models\Fileupload;
-use common\grid\EnumColumn;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\FileuploadSearch */
@@ -26,18 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'file_path',
-            'is_deleted',
-            [
-                'class' => EnumColumn::class,
-                'attribute' => 'status',
-                'enum' => Fileupload::statuses(),
-                'filter' => Fileupload::statuses()
-            ],
+            'name',
             [
                 'class' => \common\widgets\ActionColumn::class,
                 'template' => '{delete}',

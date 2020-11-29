@@ -8,6 +8,7 @@ use frontend\models\search\FileuploadSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use frontend\models\search\FileuploadLogSearch;
 /**
  * FileuploadController implements the CRUD actions for Fileupload model.
  */
@@ -38,6 +39,21 @@ class FileuploadController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Lists all deleted Fileupload models.
+     * @return mixed
+     */
+    public function actionLog()
+    {
+        $searchModel = new FileuploadLogSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('log', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -80,9 +96,15 @@ class FileuploadController extends Controller
                     $path = $model->getUploadedFile();
                     $file->saveAs($path);
                 }
+
+                Yii::$app->getSession()->setFlash('alert', [
+                    'body' => \Yii::t('frontend', 'Successfully uploaded file.'),
+                    'options' => ['class' => 'alert-success']
+                ]);
+
                 return $this->redirect(['index']);
             } else {
-                // error in saving model
+
             }
         }
 
@@ -123,6 +145,11 @@ class FileuploadController extends Controller
         $model = $this->findModel($id);
         $model->is_deleted = Fileupload::STATUS_DELETED;
 
+        Yii::$app->getSession()->setFlash('alert', [
+            'body' => \Yii::t('frontend', 'successfully deleted file.'),
+            'options' => ['class' => 'alert-success']
+        ]);
+        
         if ($model->save()) {
             return $this->redirect(['index']);
         }
