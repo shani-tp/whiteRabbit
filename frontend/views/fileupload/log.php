@@ -10,7 +10,7 @@ use common\models\Fileupload;
 /* @var $searchModel frontend\models\FileuploadSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('frontend', 'Fileuploads');
+$this->title = Yii::t('frontend', 'Delete History');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="fileupload-index">
@@ -26,17 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        // 'filterModel' => $searchModel,
+        'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'file_path',
             'name',
-            [
-                'class' => \common\widgets\ActionColumn::class,
-                'template' => '{delete}',
-                'options' => ['style' => 'width: 140px'],
-            ],
         ],
     ]); ?>
 

@@ -17,7 +17,12 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
             'class' => ['navbar-dark', 'bg-dark', 'navbar-expand-md'],
         ],
     ]); ?>
-    
+    <?php echo Nav::widget([
+        'options' => ['class' => ['navbar-nav', 'justify-content-end', 'ml-auto']],
+        'items' => [
+            ['label' => Yii::t('frontend', 'Deleted History'), 'url' => ['/fileupload/log']],
+        ]
+    ]); ?>
     <?php NavBar::end(); ?>
 </header>
 
