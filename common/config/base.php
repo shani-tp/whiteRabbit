@@ -167,7 +167,8 @@ $config = [
             'pl-PL' => 'Polski (PL)',
             'id-ID' => 'Indonesian (Bahasa)',
         ],
-        'bsVersion' => '4.x', // bootstrap version
+        'bsVersion' => '4.x', // bootstrap version,
+        'file_base_url' => '@storage/web/source/'
     ],
 ];
 

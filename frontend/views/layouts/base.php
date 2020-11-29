@@ -20,8 +20,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
     <?php echo Nav::widget([
         'options' => ['class' => ['navbar-nav', 'justify-content-end', 'ml-auto']],
         'items' => [
-            ['label' => Yii::t('frontend', 'Home'), 'url' => ['/fileupload/index']],
             ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
+            ['label' => Yii::t('frontend', 'Files'), 'url' => ['/fileupload/index']],
             ['label' => Yii::t('frontend', 'About'), 'url' => ['/page/view', 'slug'=>'about']],
             ['label' => Yii::t('frontend', 'Articles'), 'url' => ['/article/index']],
             ['label' => Yii::t('frontend', 'Contact'), 'url' => ['/site/contact']],

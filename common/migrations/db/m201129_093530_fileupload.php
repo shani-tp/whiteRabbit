@@ -14,11 +14,11 @@ class m201129_093530_fileupload extends Migration
     {
         $this->createTable('{{%fileupload}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->string(),
-            'extension' => $this->string(),
             'file_path' => $this->string(),
-            'file_base_url' => $this->string(),
+            'name' => $this->string(1024),
             'is_deleted' => $this->smallInteger()->notNull(),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer()
         ]);
     }
 

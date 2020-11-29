@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8fbb63dfa9d701513cb68dbaf8b4f60d",
+    "content-hash": "39f7126888242513b084562f4678e64b",
     "packages": [
         {
             "name": "alexantr/yii2-elfinder",
@@ -1535,7 +1535,7 @@
         },
         {
             "name": "kartik-v/yii2-widget-fileinput",
-            "version": "v1.1.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
@@ -8152,7 +8152,8 @@
     "stability-flags": {
         "asofter/yii2-imperavi-redactor": 20,
         "trntv/yii2-datetime-widget": 20,
-        "trntv/cheatsheet": 20
+        "trntv/cheatsheet": 20,
+        "kartik-v/yii2-widget-fileinput": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
